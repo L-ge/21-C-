@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1524717182 source:f:\my c++\optional excercise\21pointsgame\pointsgame.cpp
+	<iostream>
+	<random>
+
+1524717502 source:f:\my c++\optional excercise\21pointsgame\setup.cpp
+	<iostream>
+	"pointsgame.h"
+
+1524717533 f:\my c++\optional excercise\21pointsgame\pointsgame.h
+
