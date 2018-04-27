@@ -4,7 +4,7 @@
 void game_main();
 void count_playerpoints();
 void show_result();
-void show_poker(int[]);
+void show_poker();
 void begin_poker();
 void add_poker();
 void game_over();
