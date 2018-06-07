@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 
 void count_playerpoints();
 void show_result();
@@ -121,9 +122,10 @@ void begin_poker()
 {
     int temp;
     // 产生庄家的点数
+    bankerpoints = 0;
     while (bankerpoints < 17)
     {
-        srand((unsigned)time(NULL));
+        srand(GetTickCount());
         temp = rand() % 13 + 1;
         if (temp > 10)
         {
@@ -131,7 +133,6 @@ void begin_poker()
         }
         else if (temp == 1)
         {
-            srand((unsigned)time(NULL));
             int t1 = rand() % 2;
             if (t1 == 1 && bankerpoints <= 11)
             {
@@ -147,6 +148,11 @@ void begin_poker()
             bankerpoints += temp;
         }
     }
+    if (bankerpoints > 21)
+    {
+        cout << "庄家已经爆了\n所以你赢了\n";
+        game_over();
+    }
 
 
     // 产生玩家的点数
@@ -154,7 +160,6 @@ void begin_poker()
     pokersum = 2;
     for (int i = 0; i < 2; i++)
     {
-        srand((unsigned)time(NULL));
         temp = rand() % 13 + 1;
         if (temp > 10)
         {
@@ -188,7 +193,7 @@ void begin_poker()
 
 void add_poker()
 {
-    srand((unsigned)time(NULL));
+    srand(GetTickCount());
     int temp = rand() % 13 + 1;
     if (temp > 10)
     {
